@@ -4,8 +4,8 @@
     "build:client": "node build/build-client",
     "build:server": "node build/build-server",
     "build": "npm run build:client && npm run build:server",
-    "serve": "pm2 start dist/server/app.js blog_frontend",
-    "serve:restart": "pm2 restart blog_frontend"
+    "serve": "pm2 start dist/server/app.js",
+    "serve:restart": "pm2 restart app"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
