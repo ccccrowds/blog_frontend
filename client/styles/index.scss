@@ -1,0 +1,25 @@
+@import './reset.scss';
+@import './constant.scss';
+@import './util.scss';
+
+html, body {
+  font-size: 14px;
+  color: $color-gray;
+}
+html, body, #root {
+  height: 100%;
+}
+#root {
+  display: flex;
+}
+.left-menu {
+  flex: 0 0 260px;
+  background-color: $color-white;
+  overflow: hidden;
+}
+#root>[data-reactroot] {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: $color-bg;
+}

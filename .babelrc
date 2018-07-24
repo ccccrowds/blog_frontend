@@ -1,19 +1,25 @@
 {
   "presets": [
-    "es2015",
-    "stage-0",
-    "react"
+    [
+      "env"
+    ],
+    "react",
+    "stage-2"
   ],
   "plugins": [
     "transform-runtime",
     "transform-decorators-legacy",
     "add-module-exports",
+    "syntax-dynamic-import",
     "react-hot-loader/babel",
     [
       "transform-object-rest-spread",
       {
         "useBuiltIns": true
       }
-    ]
+    ],
+    ["import-inspector", {
+      "serverSideRequirePath": true
+    }]
   ]
 }

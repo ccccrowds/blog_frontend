@@ -1,16 +1,11 @@
-import App from '@/app'
-import Home from '@/components/home'
-import About from '@/components/about'
-import User from '@/container/user'
-
+// import loadableComp from '@/common/loadableComp'
+import Post from './container/Posts'
+import Detail from './container/Detail'
 export default [{
   path: '/',
   exact: true,
-  component: Home
+  component: Post
 }, {
-  path: '/about',
-  component: About
-}, {
-  path: '/user',
-  component: User
+  path: '/detail',
+  component: Detail
 }]

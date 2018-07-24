@@ -1,0 +1,56 @@
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+// 文字处理
+.text-left {
+  text-align: left
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-overflow {
+  white-space:nowrap; 
+  text-overflow:ellipsis; 
+  overflow:hidden;
+}
+.text-wrap {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+// 浮动
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+
+// 块
+.left-block {
+  display: flex;
+  justify-content: flex-start;
+}
+.center-block {
+  display: flex;
+  justify-content: center;
+}
+.right-block {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// 显示隐藏
+.show {
+  display: block!important;
+}
+.hidden {
+  display: none!important;
+}
