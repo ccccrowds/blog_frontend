@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import users from './users'
+import posts from '../routes/Posts/reducers'
 
 export default combineReducers({
-  users
+  posts
 })

@@ -18,17 +18,23 @@ const getExternals = () => {
 }
 
 module.exports = merge(baseWebpackConfig, {
-  mode: 'production',
+  mode: 'development',
   entry: config.server.entry,
   output: {
     path: config.build.assetsRoot,
     filename: utils.serverPath('[name].js')
   },
   module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
+    rules: [
+      ...utils.styleLoaders({
+        sourceMap: config.build.productionSourceMap,
+        extract: true
+      }),
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

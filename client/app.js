@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
-import routes from './routes'
+import routes from './routes/index'
 import Sidebar from './components/Sidebar'
 import './styles/index.scss'
 

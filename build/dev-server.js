@@ -14,7 +14,10 @@ const views = require('koa-views')
 const static = require('koa-static')
 const app = require('../server/app')
 const fs = require('fs')
-const ssrMiddleWare = require('../server/middleware/server-render')
+// const Loadable = require('react-loadable')
+// const ssrMiddleWare = require('../server/middleware/server-render')
+//for .babelrc
+process.env.BABEL_ENV = "dev"
 
 const port = process.env.PORT || config.dev.port
 
@@ -44,7 +47,17 @@ app.use(convert(devMiddleware(compiler, {
   noInfo: true
 })))
 app.use(convert(hotMiddleware(compiler)))
-app.use(ssrMiddleWare)
+// app.use(ssrMiddleWare)
+
+app.use(async (ctx, next) => {
+  await ctx.render('index', {
+    title: 'title',
+    root: '',
+    state: {},
+    scripts: []
+  })
+  next()
+})
 
 // proxy api requests
 // Object.keys(proxyTable).forEach(function (context) {
@@ -59,6 +72,8 @@ const uri = 'http://localhost:' + port
 
 console.log('> Starting dev server...')
 
+// Loadable.preloadAll().then(_ => {
 app.listen(port, () => {
   console.log('> Listening at ' + uri + '\n')
 })
+// })
