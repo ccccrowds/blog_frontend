@@ -7,9 +7,23 @@ export default class Posts extends PureComponent {
   }
 
   render() {
+    const { postsList } = this.props
+    const { loading, list } = postsList
     return (
       <div>
-        posts
+        {
+          loading
+            ? 'loading...'
+            : <ul>
+              {
+                list.map(item => <li>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                  <p>{item.created_time}</p>
+                </li>)
+              }
+            </ul>
+        }
       </div>
     )
   }

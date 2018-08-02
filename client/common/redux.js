@@ -9,8 +9,9 @@ export const reducerCreator = actionTypes => (reducer, initialData) => {
     error: null
   }
   const [ START, SUCCESS, FAILED ] = actionTypes
-  const [ baseStart = noop, baseSuccess = noop, baseFailed = noop ] = reducer
-
+  const baseStart = reducer[START] || noop
+  const baseSuccess = reducer[SUCCESS] || noop
+  const baseFailed = reducer[FAILED] || noop
   return createReducer({
     [START]: (state, payload) => {
       return baseStart({
@@ -53,11 +54,11 @@ const applyFetchMiddleware = (
   handleErrorTotal = error => error
 ) =>
   store => next => action => {
-    if (!action.url || !Array.isArray(action.types)) {
+    if (!Array.isArray(action.types)) {
       return next(action)
     }
     const {
-      callAPI: noop,
+      callAPI = noop,
       handleResult = val => val,
       handleError = error => error,
       types,

@@ -1,4 +1,4 @@
-import routes from '../routes'
+import routes from '@/routes/index.js'
 import { trigger } from 'redial'
 import _match from './matchRoutes'
 

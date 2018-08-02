@@ -1,12 +1,12 @@
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
-import createFetchMiddleware from 'redux-data-fetch-middleware'
-
+import createFetchMiddleware from '@/common/redux'
 import reducer from '../reducer'
-import { post } from '@/common/fetch'
 
-const handleResponse = res => res.json()
-const reduxFetch = createFetchMiddleware(post, handleResponse)
+const reduxFetch = createFetchMiddleware(
+  res => res,
+  error => error
+)
 
 const middleWare = [thunk, reduxFetch]
 

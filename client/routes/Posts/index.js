@@ -3,20 +3,21 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
 import { provideHooks } from 'redial';
-import {
-  getUserList
-} from '@/actions/users/index.js'
-import UserComp from '@/components/user'
+import { getPostsList } from './actions'
+
+import UserComp from './components'
 
 @provideHooks({
-  fetch: ({ dispatch, params }) => dispatch(getUserList())
+  fetch: ({ dispatch, params }) => {
+    dispatch(getPostsList())
+  }
 })
-@connect(state => state.users)
+@connect(state => state.posts)
 export default class UserContainer extends PureComponent {
   render() {
-    const { userList } = this.props
+    const { postsList } = this.props
     return (
-      <UserComp userList={userList}/>
+      <UserComp postsList={postsList}/>
     )
   }
 }

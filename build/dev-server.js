@@ -50,12 +50,14 @@ app.use(convert(hotMiddleware(compiler)))
 // app.use(ssrMiddleWare)
 
 app.use(async (ctx, next) => {
-  await ctx.render('index', {
-    title: 'title',
-    root: '',
-    state: {},
-    scripts: []
-  })
+  // if (ctx.url.indexOf('/api') < 0) {
+    await ctx.render('index', {
+      title: 'title',
+      root: '',
+      state: {},
+      scripts: []
+    })
+  // }
   next()
 })
 
