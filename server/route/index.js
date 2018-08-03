@@ -8,7 +8,6 @@ const router = new Router({
 
 router.get('/*', async (ctx) => {
   const url = ctx.url.replace('/api', '')
-  console.log(url)
   const res = await get(config.backendHost + url)
     .then(res => res.json())
   ctx.body = res

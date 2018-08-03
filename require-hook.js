@@ -1,15 +1,15 @@
 // Css require hook
-require('css-modules-require-hook')({
-  extensions: ['.scss'],
-  preprocessCss: (data, filename) => {
-    return require('node-sass').renderSync({
-      data,
-      file: filename
-    }).css
-  },
-  camelCase: true,
-  generateScopedName: '[name]__[local]__[hash:base64:8]'
-})
+// require('css-modules-require-hook')({
+//   extensions: ['.scss'],
+//   preprocessCss: (data, filename) => {
+//     return require('node-sass').renderSync({
+//       data,
+//       file: filename
+//     }).css
+//   },
+//   camelCase: true,
+//   generateScopedName: '[name]__[local]__[hash:base64:8]'
+// })
 
 // Image require hook
 require('asset-require-hook')({

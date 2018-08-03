@@ -9,7 +9,8 @@ import UserComp from './components'
 
 @provideHooks({
   fetch: ({ dispatch, params }) => {
-    dispatch(getPostsList())
+    // 务必将Promise返回，保证请求结束后再进行服务端渲染
+    return dispatch(getPostsList())
   }
 })
 @connect(state => state.posts)

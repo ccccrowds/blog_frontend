@@ -11,15 +11,24 @@
     "transform-decorators-legacy",
     "add-module-exports",
     "syntax-dynamic-import",
-    "react-hot-loader/babel",
+    "react-loadable/babel",
     [
       "transform-object-rest-spread",
       {
         "useBuiltIns": true
       }
-    ],
-    ["import-inspector", {
-      "serverSideRequirePath": true
-    }]
-  ]
+    ]
+  ],
+  "env": {
+    "dev": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
+    "ssr": {
+      "plugins": [
+        "dynamic-import-node"
+      ]
+    }
+  }
 }

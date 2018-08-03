@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-// import './index.scss'
+import './index.scss'
 
 export default class Sidebar extends PureComponent {
   static propTypes = {
