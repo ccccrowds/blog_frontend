@@ -16,7 +16,6 @@ module.exports = {
       ]
     },
     ssr: true, // use server-side render
-    env: require('./prod.env'),
     index: 'index.html',
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
@@ -40,7 +39,6 @@ module.exports = {
         'webpack-hot-middleware/client?noInfo=true&reload=true'
       ]
     },
-    env: require('./dev.env'),
     port: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',

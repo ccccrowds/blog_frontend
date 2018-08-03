@@ -1,0 +1,59 @@
+@import '@/styles/index.scss';
+
+.posts-lists {
+  column-count: 3;
+  column-gap: 30px;
+  padding: 0 140px;
+  padding-top: 140px;
+
+  &__item {
+    break-inside: avoid;
+    margin-bottom: 30px;
+    max-width: 400px;
+    min-width: 300px;
+
+    &__wrap {
+      background-color: #eee;
+    }
+    &__title {
+      overflow: hidden;
+      position: relative;
+      padding: 60px 30px;
+      padding-bottom: 80px;
+      color: $color-black;
+      font-size: 32px;
+      // &::after {
+      //   position: absolute;
+      //   bottom: -20px;
+      //   right: 30px;
+      //   content: '♣';
+      //   font-size: 80px;
+      //   color: $color-white;
+      // }
+    }
+    // &:nth-child(3n+1) {
+    //   .posts-lists__item__title {
+    //     &::after {
+    //       content: '♠';
+    //     }
+    //   }
+    // }
+    // &:nth-child(3n+2) {
+    //   .posts-lists__item__title {
+    //     &::after {
+    //       content: '♥';
+    //     }
+    //   }
+    // }
+    &__body {
+      padding: 30px;
+      background-color: $color-white;
+    }
+    &__info {
+      margin-bottom: 10px;
+    }
+    &__desc {
+      color: $color-easy-black;
+    }
+  }
+}

@@ -17,7 +17,7 @@ html, body, #root {
   background-color: $color-white;
   overflow: hidden;
 }
-#root>[data-reactroot] {
+#root>[data-reactroot],.right-content {
   flex: 1;
   overflow-x: hidden;
   overflow-y: scroll;
