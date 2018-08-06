@@ -14,6 +14,7 @@ export const reducerCreator = actionTypes => (reducer, initialData) => {
   const baseFailed = reducer[FAILED] || noop
   return createReducer({
     [START]: (state, payload) => {
+      console.log(111, payload)
       return baseStart({
         ...state,
         loading: true,
@@ -21,6 +22,7 @@ export const reducerCreator = actionTypes => (reducer, initialData) => {
       }, payload)
     },
     [SUCCESS]: (state, payload) => {
+      console.log(222, payload)
       return baseSuccess({
         ...state,
         loading: false
@@ -67,6 +69,7 @@ const applyFetchMiddleware = (
     next(START(action))
     return callAPI().then(res => res.json())
       .then(ret => {
+        console.log(SUCCESS(handleResponse(ret)))
         return next(SUCCESS(handleResult ? handleResult(ret) : handleResponse(ret)))
       })
       .catch(error => {

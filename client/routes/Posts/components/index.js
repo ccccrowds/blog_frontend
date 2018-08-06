@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Loading from '@/common/loading'
+import { Link } from 'react-router-dom'
 import './index.scss'
 
 const color = () => {
@@ -29,7 +30,7 @@ export default class Posts extends PureComponent {
           <ul className="posts-lists">
             {
               list.map(item => <li className="posts-lists__item">
-                <div className="posts-lists__item__wrap">
+                <Link to={`/detail/${item.id}`} className="posts-lists__item__wrap">
                   <div className={`posts-lists__item__title ${show()}`}
                     style={{
                       backgroundColor: color()
@@ -38,7 +39,7 @@ export default class Posts extends PureComponent {
                     <p className="posts-lists__item__info">{item.created_time}</p>
                     <p className="posts-lists__item__desc">{randomString('描述描述描述啊啊啊')}</p>
                   </div>
-                </div>
+                </Link>
               </li>)
             }
           </ul>
