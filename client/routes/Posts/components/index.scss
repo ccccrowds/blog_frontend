@@ -1,15 +1,15 @@
 @import '@/styles/index.scss';
 
 .posts-lists {
-  column-count: 3;
-  column-gap: 30px;
+  // column-count: 2;
+  // column-gap: 30px;
   padding: 0 140px;
   padding-top: 140px;
 
   &__item {
     break-inside: avoid;
-    margin-bottom: 30px;
-    max-width: 400px;
+    margin-bottom: 80px;
+    // max-width: 800px;
     min-width: 300px;
 
     &__wrap {
@@ -18,39 +18,34 @@
     &__title {
       overflow: hidden;
       position: relative;
-      padding: 60px 30px;
-      padding-bottom: 80px;
+      padding: 40px 30px;
+      padding-bottom: 30px;
+      text-align: left;
+      word-break: break-all;
       color: $color-black;
-      font-size: 32px;
+      font-size: 24px;
+      line-height: 1;
       // &::after {
       //   position: absolute;
-      //   bottom: -20px;
+      //   top: -20px;
       //   right: 30px;
-      //   content: '♣';
+      //   content: '♠';
       //   font-size: 80px;
       //   color: $color-white;
       // }
     }
-    // &:nth-child(3n+1) {
-    //   .posts-lists__item__title {
-    //     &::after {
-    //       content: '♠';
-    //     }
-    //   }
-    // }
-    // &:nth-child(3n+2) {
-    //   .posts-lists__item__title {
-    //     &::after {
-    //       content: '♥';
-    //     }
-    //   }
-    // }
+    &__time {
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: normal;
+    }
     &__body {
       padding: 30px;
-      background-color: $color-white;
+      // background-color: $color-white;
     }
     &__info {
       margin-bottom: 10px;
+      color: $color-black;
     }
     &__desc {
       color: $color-easy-black;

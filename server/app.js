@@ -8,8 +8,11 @@ import convert from 'koa-convert'
 import router from './route'
 import config from './config'
 import url from 'url'
+const cors = require('koa2-cors')
 
 const app = new Koa()
+
+app.use(cors())
 
 // app.keys = ['this is a fucking secret']
 // app.use(convert(session(app)))

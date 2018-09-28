@@ -1,0 +1,10 @@
+@import '@/styles/index.scss';
+
+.tag {
+  margin: 2px;
+  display: inline-block;
+  color: $color-gray;
+  &:hover {
+    color: $color-black;
+  }
+}

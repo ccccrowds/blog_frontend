@@ -5,16 +5,16 @@ import { reducerCreator } from '@/common/redux'
 const [, GET_POSTS_LIST_SUCCESS,] = GET_POSTS_LIST_ACTIONS
 
 const postsList = reducerCreator(GET_POSTS_LIST_ACTIONS)({
-  [GET_POSTS_LIST_SUCCESS]: (state, payload) => {
+  [GET_POSTS_LIST_SUCCESS]: (state, { list, page }) => {
     return {
       ...state,
-      list: payload.results,
-      count: payload.count
+      list,
+      page
     }
   }
 }, {
   list: [],
-  count: 0
+  page: {}
 })
 
 export default combineReducers({

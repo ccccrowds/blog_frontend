@@ -1,44 +1,55 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Loading from '@/common/loading'
+import Tag from '@/components/Tag'
 import { Link } from 'react-router-dom'
 import './index.scss'
 
 const color = () => {
   return [
-    'rgb(218,233,240)',
     'rgb(225,222,222)',
-    'rgb(238,238,238)',
-  ][parseInt(Math.random() * 3)]
-}
-const show = () => Math.random() < 0.7 ? 'show' : ''
-const randomString = (str, length = 6) => {
-  return str.repeat(parseInt(Math.random() * length) + 1)
+  ][parseInt(Math.random() * 1)]
 }
 
 export default class Posts extends PureComponent {
   getResultColumns() {
 
   }
+  renderPostItem (item) {
+    return <Fragment>
+      <div className="posts-lists__item__title"
+      // style={{
+      //   backgroundColor: color()
+      // }}>
+      >
+        {item.title}
+        <div className="posts-lists__item__time">
+          {item.create_at}
+        </div>
+      </div>
+      <div className="posts-lists__item__body">
+        <p className="posts-lists__item__info">
+          Tags:
+          {
+            item.tag.map(item => <Tag key={item._id} data={item}/>)
+          }
+        </p>
+        <p className="posts-lists__item__desc">{item.desc}</p>
+      </div>
+    </Fragment>
+  }
   render() {
     const { postsList } = this.props
-    const { loading, list } = postsList
+    const { loading, list, page } = postsList
     return (
       loading
         ? <Loading />
         : <div className="posts">
           <ul className="posts-lists">
             {
-              list.map(item => <li className="posts-lists__item">
-                <Link to={`/detail/${item.id}`} className="posts-lists__item__wrap">
-                  <div className={`posts-lists__item__title ${show()}`}
-                    style={{
-                      backgroundColor: color()
-                    }}>{randomString(item.title)}</div>
-                  <div className="posts-lists__item__body">
-                    <p className="posts-lists__item__info">{item.created_time}</p>
-                    <p className="posts-lists__item__desc">{randomString('描述描述描述啊啊啊')}</p>
-                  </div>
+              list.map(item => <li className="posts-lists__item" key={item._id}>
+                <Link to={`/detail/${item._id}`} className="posts-lists__item__wrap">
+                  {this.renderPostItem(item)}
                 </Link>
               </li>)
             }

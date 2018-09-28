@@ -4,10 +4,12 @@ import { get } from '@/common/fetch'
 
 export const GET_POSTS_LIST_ACTIONS = actionCreator('get posts list')
 
-export const getPostsList = params => ({
-  callAPI: () => get('/api/blog', {
-    page_size: 20
+export const getPostsList = (page = 1) => ({
+  callAPI: () => get('/api/article', {
+    page: page,
+    limit: 20
   }),
-  types: GET_POSTS_LIST_ACTIONS
+  types: GET_POSTS_LIST_ACTIONS,
+  handleResult: res => res.data
 })
 

@@ -1,5 +1,5 @@
 export default {
-  backendHost: 'http://39.107.86.47:8000',
+  backendHost: 'http://localhost:8360',
   host: 'http://localhost',
   port: 8080
 }
