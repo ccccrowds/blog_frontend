@@ -1,8 +1,8 @@
 @import '@/styles/index.scss';
 
 .posts-lists {
-  // column-count: 2;
-  // column-gap: 30px;
+  column-count: 3;
+  column-gap: 30px;
   padding: 0 140px;
   padding-top: 140px;
 
@@ -18,11 +18,13 @@
     &__title {
       overflow: hidden;
       position: relative;
-      padding: 40px 30px;
-      padding-bottom: 30px;
+      padding: 60px 30px;
+      padding-bottom: 80px;
       text-align: left;
       word-break: break-all;
-      color: $color-black;
+      color: $color-white;
+      text-shadow: 1px 1px $color-easy-black;
+      // -webkit-text-stroke: 0.5px $color-black;
       font-size: 24px;
       line-height: 1;
       // &::after {
@@ -35,13 +37,15 @@
       // }
     }
     &__time {
+      position: relative;
       margin-top: 20px;
       font-size: 14px;
       font-weight: normal;
+      z-index: 1;
     }
     &__body {
       padding: 30px;
-      // background-color: $color-white;
+      background-color: $color-white;
     }
     &__info {
       margin-bottom: 10px;
@@ -52,3 +56,32 @@
     }
   }
 }
+@media (max-width: 1600px) { 
+  .posts-lists {
+    padding: 0 80px;
+    padding-top: 140px;
+  }
+}
+
+@media (max-width: 1500px) { 
+  .posts-lists {
+    column-count: 2;
+    padding: 0 140px;
+    padding-top: 140px;
+  }
+}
+
+@media (max-width: 1300px) { 
+  .posts-lists {
+    column-count: 2;
+    padding: 0 80px;
+    padding-top: 140px;
+  }
+}
+
+@media (max-width: 1000px) { 
+  .posts-lists {
+    column-count: 1;
+  }
+}
+

@@ -3,7 +3,16 @@
 .posts-detail {
   padding: 140px;
 
+  &__image {
+    width: 800px;
+    max-width: 800px;
+    >img {
+      width: 100%;
+    }
+  }
+
   &__title {
+    margin-top: 10px;
     font-size: 28px;
     line-height: 32px;
     color: $color-black;

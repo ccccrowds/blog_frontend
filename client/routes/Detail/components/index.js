@@ -18,6 +18,9 @@ export default class Detail extends PureComponent {
         ? <Loading />
         : item
           ? <div className="posts-detail">
+            <div className="posts-detail__image">
+              <img src={item.thumb}/>
+            </div>
             {this.renderTitle(item)}
             <div className="posts-detail__content" dangerouslySetInnerHTML={body()}></div>
           </div>

@@ -18,10 +18,9 @@ export default class Posts extends PureComponent {
   renderPostItem (item) {
     return <Fragment>
       <div className="posts-lists__item__title"
-      // style={{
-      //   backgroundColor: color()
-      // }}>
-      >
+      style={{
+        backgroundImage: `url(${item.thumb})`
+      }}>
         {item.title}
         <div className="posts-lists__item__time">
           {item.create_at}
