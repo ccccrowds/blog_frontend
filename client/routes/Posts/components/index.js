@@ -15,17 +15,19 @@ export default class Posts extends PureComponent {
     const { postsList, getPostsList } = this.props
     const { loading, list, page } = postsList
     return (
-      loading
-        ? <Loading />
-        : <div className="posts">
-          <ul className="posts-lists" ref="wrap">
-            {
-              list.map(item => <Item
-                item={item} key={item._id}/>)
-            }
-          </ul>
-          <button onClick={this.getMore}>Read More</button>
-        </div>
+      <div className="posts">
+        <ul className="posts-lists" ref="wrap">
+          {
+            list.map(item => <Item
+              item={item} key={item._id}/>)
+          }
+        </ul>
+        {
+          loading
+            ? <Loading />
+            : <button className="posts__more" onClick={this.getMore}>Read More</button>
+        }
+      </div>
     )
   }
 }

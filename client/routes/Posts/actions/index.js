@@ -6,7 +6,7 @@ export const GET_POSTS_LIST_ACTIONS = actionCreator('get posts list')
 
 export const getPostsList = (page = 1) => ({
   callAPI: () => get('/api/article', {
-    page: page,
+    current_page: page,
     page_size: 12
   }),
   types: GET_POSTS_LIST_ACTIONS,
