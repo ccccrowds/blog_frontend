@@ -9,16 +9,21 @@ import UserComp from './components'
 
 @provideHooks({
   fetch: ({ dispatch, params }) => {
-    // 务必将Promise返回，保证请求结束后再进行服务端渲染
     return dispatch(getPostsList())
   }
 })
-@connect(state => state.posts)
+@connect(
+  state => state.posts,
+  dispatch => bindActionCreators({
+    getPostsList
+  }, dispatch)
+)
 export default class UserContainer extends PureComponent {
   render() {
-    const { postsList } = this.props
+    const { postsList, getPostsList } = this.props
     return (
-      <UserComp postsList={postsList}/>
+      <UserComp postsList={postsList}
+        getPostsList={getPostsList}/>
     )
   }
 }

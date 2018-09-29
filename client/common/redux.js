@@ -14,7 +14,6 @@ export const reducerCreator = actionTypes => (reducer, initialData) => {
   const baseFailed = reducer[FAILED] || noop
   return createReducer({
     [START]: (state, payload) => {
-      console.log(111, payload)
       return baseStart({
         ...state,
         loading: true,
@@ -22,7 +21,6 @@ export const reducerCreator = actionTypes => (reducer, initialData) => {
       }, payload)
     },
     [SUCCESS]: (state, payload) => {
-      console.log(222, payload)
       return baseSuccess({
         ...state,
         loading: false
