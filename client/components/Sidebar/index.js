@@ -16,7 +16,7 @@ export default class Sidebar extends PureComponent {
         </div>
         <ul className="left-menu__list">
           <li className="left-menu__list-item"><Link to="/">Posts</Link></li>
-          <li className="left-menu__list-item"><Link to="/">Tags</Link></li>
+          <li className="left-menu__list-item"><Link to="/tags">Tags</Link></li>
           <li className="left-menu__list-item"><Link to="/">Category</Link></li>
           <li className="left-menu__list-item"><Link to="/">Archives</Link></li>
           <li className="left-menu__list-item"><Link to="/">About</Link></li>

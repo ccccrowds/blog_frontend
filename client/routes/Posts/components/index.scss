@@ -1,7 +1,34 @@
 @import '@/styles/index.scss';
 
 .posts {
-  padding: 120px 0;
+  padding: 80px 0;
+
+  &-types {
+    &__list {
+      display: flex;
+      margin-bottom: 20px;
+
+      &__title {
+        font-size: 16px;
+        vertical-align: top;
+      }
+      &__item {
+        vertical-align: top;
+        margin-top: -4px;
+        margin-right: 10px;
+        padding: 4px 10px;
+        background-color: $color-white;
+        border: 1px solid $color-gray;
+        color: $color-deep-gray;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-white;
+          background-color: $color-gray;
+        }
+      }
+    }
+  }
 
   &__more {
     cursor: pointer;
@@ -15,7 +42,10 @@
   }
 }
 .posts-lists {
-  margin: 0 auto;
+  &__wrap {
+    margin: 0 auto;
+  }
+  
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -62,15 +92,15 @@
     }
     &__info {
       margin-bottom: 10px;
-      color: $color-black;
+      color: $color-deep-gray;
     }
     &__desc {
-      color: $color-easy-black;
+      color: $color-deep-gray;
     }
   }
 }
 @media (min-width: 1700px) { 
-  .posts-lists {
+  .posts-lists__wrap {
     width: 1410px;
   }
   .posts-lists__item {
@@ -78,7 +108,7 @@
   }
 }
 @media (max-width: 1700px) { 
-  .posts-lists {
+  .posts-lists__wrap {
     width: 1260px;
   }
   .posts-lists__item {
@@ -87,7 +117,7 @@
 }
 
 @media (max-width: 1500px) {
-  .posts-lists {
+  .posts-lists__wrap {
     width: 1060px;
   }
   .posts-lists__item {
@@ -101,7 +131,7 @@
   }
 }
 @media (max-width: 1400px) { 
-  .posts-lists {
+  .posts-lists__wrap {
     width: 960px;
   }
   .posts-lists__item {
@@ -110,7 +140,7 @@
 }
 
 @media (max-width: 1300px) {
-  .posts-lists {
+  .posts-lists__wrap {
     width: 860px;
   }
   .posts-lists__item {
@@ -119,7 +149,7 @@
 }
 
 @media (max-width: 1200px) { 
-  .posts-lists {
+  .posts-lists__wrap {
     width: 500px;
   }
   .posts-lists__item {

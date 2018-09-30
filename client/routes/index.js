@@ -10,4 +10,9 @@ export default [{
   component: loadableComp(
     () => import(/* webpackChunkName: 'detail' */ './Detail/index.js')
   )
+}, {
+  path: '/tags',
+  component: loadableComp(
+    () => import(/* webpackChunkName: 'tags' */ './Tags/index.js')
+  )
 }]

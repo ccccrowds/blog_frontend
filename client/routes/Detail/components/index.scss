@@ -23,21 +23,44 @@
       color: $color-deep-gray;
       font-size: 14px;
       line-height: 20px;
-      font-weight: bold;
     }
   }
   &__content {
-    margin-top: 50px;
+    margin-top: 30px;
     max-width: 800px;
+    color: $color-deep-gray;
+    line-height: 2;
+    blockquote {
+      border-left: 2px solid $color-deep-gray;
+      padding-left: 10px;
+      // float: left;
 
+      // &::first-letter{
+      //   color: $color-black;
+      //   font-size: 32px;
+      //   line-height: 1;
+      // }
+    }
+    pre {
+      margin: 10px auto;
+      display: block;
+      border-radius: 2px;
+      overflow-x: auto;
+      padding: 0.5em;
+      background: $color-easy-black;
+      color: #dcdcdc;
+    }
     img {
       display: block;
       width: 100%;
       margin: 20px auto;
     }
-
+    a {
+      color: $color-gray;
+      text-decoration: underline;
+    }
     h1, h2, h3, h4, h5, h6 {
-      font-weight: bold;
+      font-weight: normal;
       color: $color-easy-black;
     }
     h1 {

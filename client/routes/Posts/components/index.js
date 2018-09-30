@@ -11,17 +11,31 @@ export default class Posts extends PureComponent {
     const { page } = postsList
     getPostsList(page.page + 1)
   }
+  renderTypes (typeList) {
+    const { list } = typeList
+
+    return <div className="posts-types__list">
+      <div className="posts-types__list__title">按分类筛选：</div>
+      {list.map(item => <label key={item._id}
+        className="posts-types__list__item">
+        {item.name}
+      </label>)}
+    </div>
+  }
   render() {
-    const { postsList, getPostsList } = this.props
-    const { loading, list, page } = postsList
+    const { postsList, typeList } = this.props
+    const { loading, list } = postsList
     return (
       <div className="posts">
-        <ul className="posts-lists" ref="wrap">
-          {
-            list.map(item => <Item
-              item={item} key={item._id}/>)
-          }
-        </ul>
+        <div className="posts-lists__wrap">
+          {this.renderTypes(typeList)}
+          <ul className="posts-lists">
+            {
+              list.map(item => <Item
+                item={item} key={item._id}/>)
+            }
+          </ul>
+        </div>
         {
           loading
             ? <Loading />

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import Loading from '@/common/loading'
 import './index.scss'
+import 'highlight.js/styles/vs2015.css'
 
 export default class Detail extends PureComponent {
   renderTitle (item) {

@@ -1,0 +1,40 @@
+@import '@/styles/index.scss';
+
+.tags {
+  padding: 140px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    color: $color-deep-gray;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-gray;
+    }
+  }
+}
+.tags-article {
+  margin-top: 40px;
+  &__item {
+    margin-bottom: 20px;
+    // border-bottom: 1px solid $color-white;
+
+    &__title {
+      font-size: 18px;
+      color: $color-easy-black;
+    }
+    &__article {
+      margin-left: 20px;
+    }
+  }
+}

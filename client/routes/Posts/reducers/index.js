@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { GET_POSTS_LIST_ACTIONS } from '../actions'
+import { GET_POSTS_LIST_ACTIONS, GET_TYPE_LIST_ACTIONS } from '../actions'
 import { reducerCreator } from '@/common/redux'
 
 const [, GET_POSTS_LIST_SUCCESS,] = GET_POSTS_LIST_ACTIONS
@@ -27,6 +27,20 @@ const postsList = reducerCreator(GET_POSTS_LIST_ACTIONS)({
   page: {}
 })
 
+const [, GET_TYPE_LIST_SUCCESS,] = GET_TYPE_LIST_ACTIONS
+
+const typeList = reducerCreator(GET_TYPE_LIST_ACTIONS)({
+  [GET_TYPE_LIST_SUCCESS]: (state, list) => {
+    return {
+      ...state,
+      list
+    }
+  }
+}, {
+  list: []
+})
+
 export default combineReducers({
-  postsList
+  postsList,
+  typeList
 })
