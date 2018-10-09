@@ -32,7 +32,6 @@ export default class Tags extends PureComponent {
   render() {
     const { tagList, articleList } = this.props
     const { loading, list } = tagList
-    console.log(list)
     return (
       <div className="tags">
         {

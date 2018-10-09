@@ -47,8 +47,15 @@
       border-radius: 2px;
       overflow-x: auto;
       padding: 0.5em;
-      background: $color-easy-black;
+      background: #797979;
       color: #dcdcdc;
+    }
+    ul {
+      margin: 10px 20px;
+
+      li {
+        list-style: disc;
+      }
     }
     img {
       display: block;
@@ -61,7 +68,7 @@
     }
     h1, h2, h3, h4, h5, h6 {
       font-weight: normal;
-      color: $color-easy-black;
+      color: $color-gray;
     }
     h1 {
       font-size: 32px;

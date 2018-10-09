@@ -9,8 +9,14 @@
     margin-bottom: 105px;
     width: 77px;
     height: 77px;
-    border: 1px solid $color-black;
+    border: 1px solid $color-easy-gray;
+    border-radius: 50%;
     overflow: hidden;
+    padding: 5px;
+
+    &-content {
+      width: 100%;
+    }
   }
 
   &__list {
