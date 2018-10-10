@@ -1,0 +1,54 @@
+@import '@/styles/index.scss';
+
+.timeline {
+  &__item {
+    &__title {
+      position: relative;
+      padding: 30px 30px;
+      font-size: 20px;
+      color: $color-gray;
+      border-left: 2px solid #dedede;
+      cursor: normal;
+
+      &::before{
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        margin-top: -6px;
+        display: inline-block;
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $color-easy-gray;
+      }
+    }
+    &__article>a {
+      margin: 0;
+      display: block;
+      position: relative;
+      padding: 15px 30px;
+      border-left: 2px solid #dedede;
+      color: $color-deep-gray;
+      font-size: 16px;
+      cursor: pointer;
+
+      &::before{
+        position: absolute;
+        left: -4px;
+        top: 50%;
+        margin-top: -4px;
+        display: inline-block;
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $color-easy-gray;
+      }
+
+      &:hover{
+        color: $color-black;
+      }
+    }
+  }
+}

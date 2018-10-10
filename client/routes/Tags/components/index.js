@@ -1,6 +1,8 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Loading from '@/common/loading'
+import Timeline from '@/components/Timeline'
 
 import './index.scss'
 
@@ -9,25 +11,24 @@ export default class Tags extends PureComponent {
     /** 标签列表 */
     tagList: PropTypes.object
   }
+  scrollToAnchor = (anchorName) => {
+    if (anchorName) {
+      const anchorElement = document.getElementById(anchorName)
+      
+      if(anchorElement) {
+        anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'})
+      }
+    }
+  }
   renderArticle (articleList) {
     const { list } = articleList
-    return <div className="tags-article">
-      {
-        list.map(tag => {
-          return <div key={tag._id} className="tags-article__item">
-            <h3 className="tags-article__item__title">{tag._id}</h3>
-            <div>
-              {
-                tag.list.map(article => <div key={article._id}
-                  className="tags-article__item__article">
-                  {article.title}
-                </div>)
-              }
-            </div>
-          </div>
-        })
-      }
-    </div>
+    const render = article => <Link key={article._id}
+      to={`/detail/${article._id}`}
+      className="tags-article">
+      {article.title}
+    </Link>
+
+    return <Timeline data={list} render={render}/>
   }
   render() {
     const { tagList, articleList } = this.props
@@ -38,6 +39,7 @@ export default class Tags extends PureComponent {
           !loading
             ? <div className="tags-list">
               { list.map(item => <label key={item._id}
+                onClick={() => this.scrollToAnchor(item.name)}
                 className="tags-list__item">
                 {item.name}
               </label>) }

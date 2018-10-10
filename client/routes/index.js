@@ -15,4 +15,9 @@ export default [{
   component: loadableComp(
     () => import(/* webpackChunkName: 'tags' */ './Tags/index.js')
   )
+}, {
+  path: '/archives',
+  component: loadableComp(
+    () => import(/* webpackChunkName: 'archives' */ './Archives/index.js')
+  )
 }]
