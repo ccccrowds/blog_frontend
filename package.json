@@ -6,7 +6,7 @@
     "build:client": "node build/build-client",
     "build:server": "cross-env BABEL_ENV=ssr node build/build-server",
     "build": "npm run build:client && npm run build:server",
-    "serve": "pm2 start dist/server/app.js"
+    "serve": "pm2 start dist/server/app.js -n blog"
   },
   "dependencies": {
     "@koa/cors": "^2.2.2",
