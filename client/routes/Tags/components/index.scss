@@ -1,0 +1,27 @@
+@import '@/styles/index.scss';
+
+.tags {
+  padding: 140px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+
+  &__item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    color: $color-deep-gray;
+    cursor: pointer;
+
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-gray;
+    }
+  }
+}

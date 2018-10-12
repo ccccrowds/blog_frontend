@@ -13,7 +13,7 @@ const hotMiddleware = require('koa-webpack-hot-middleware')
 const views = require('koa-views')
 const app = require('../server/app')
 const fs = require('fs')
-const cors = require('@koa/cors')
+// const cors = require('@koa/cors')
 // const Loadable = require('react-loadable')
 // const ssrMiddleWare = require('../server/middleware/server-render')
 //for .babelrc
@@ -48,7 +48,7 @@ app.use(convert(devMiddleware(compiler, {
 })))
 app.use(convert(hotMiddleware(compiler)))
 // app.use(ssrMiddleWare)
-app.use(cors())
+// app.use(cors())
 
 app.use(async (ctx, next) => {
   // if (ctx.url.indexOf('/api') < 0) {

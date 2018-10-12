@@ -1,0 +1,14 @@
+@import '@/styles/index.scss';
+
+.archives {
+  padding: 140px;
+
+  .archive-article {
+    &__time {
+      display: inline-block;
+      margin-left: 20px;
+      color: $color-easy-gray;
+      font-size: 14px;
+    }
+  }
+}

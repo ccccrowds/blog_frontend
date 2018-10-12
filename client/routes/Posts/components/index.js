@@ -1,48 +1,47 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Loading from '@/common/loading'
+import Item from './Item'
+
 import './index.scss'
 
-const color = () => {
-  return [
-    'rgb(218,233,240)',
-    'rgb(225,222,222)',
-    'rgb(238,238,238)',
-  ][parseInt(Math.random() * 3)]
-}
-const show = () => Math.random() < 0.7 ? 'show' : ''
-const randomString = (str, length = 6) => {
-  return str.repeat(parseInt(Math.random() * length) + 1)
-}
-
 export default class Posts extends PureComponent {
-  getResultColumns() {
+  getMore = () => {
+    const { postsList, getPostsList } = this.props
+    const { page } = postsList
+    getPostsList(page.page + 1)
+  }
+  renderTypes (typeList) {
+    const { list } = typeList
 
+    return <div className="posts-types__list">
+      <div className="posts-types__list__title">按分类筛选：</div>
+      {list.map(item => <label key={item._id}
+        className="posts-types__list__item">
+        {item.name}
+      </label>)}
+    </div>
   }
   render() {
-    const { postsList } = this.props
+    const { postsList, typeList } = this.props
     const { loading, list } = postsList
     return (
-      loading
-        ? <Loading />
-        : <div className="posts">
+      <div className="posts">
+        <div className="posts-lists__wrap">
+          {/* {this.renderTypes(typeList)} */}
           <ul className="posts-lists">
             {
-              list.map(item => <li className="posts-lists__item">
-                <div className="posts-lists__item__wrap">
-                  <div className={`posts-lists__item__title ${show()}`}
-                    style={{
-                      backgroundColor: color()
-                    }}>{randomString(item.title)}</div>
-                  <div className="posts-lists__item__body">
-                    <p className="posts-lists__item__info">{item.created_time}</p>
-                    <p className="posts-lists__item__desc">{randomString('描述描述描述啊啊啊')}</p>
-                  </div>
-                </div>
-              </li>)
+              list.map(item => <Item
+                item={item} key={item._id}/>)
             }
           </ul>
         </div>
+        {
+          loading
+            ? <Loading />
+            : <button className="posts__more" onClick={this.getMore}>Read More</button>
+        }
+      </div>
     )
   }
 }

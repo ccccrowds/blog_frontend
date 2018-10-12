@@ -39,7 +39,7 @@ module.exports = {
         'webpack-hot-middleware/client?noInfo=true&reload=true'
       ]
     },
-    port: 8080,
+    port: 8089,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
