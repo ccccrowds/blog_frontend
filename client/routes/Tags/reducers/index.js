@@ -19,7 +19,6 @@ const [, GET_ARTICLE_SUCCESS,] = GET_ARTILE_TAG_ACTION
 
 const articleList = reducerCreator(GET_ARTILE_TAG_ACTION)({
   [GET_ARTICLE_SUCCESS]: (state, list) => {
-    console.log(111,list)
     return {
       ...state,
       list
