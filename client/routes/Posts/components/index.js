@@ -28,7 +28,7 @@ export default class Posts extends PureComponent {
     return (
       <div className="posts">
         <div className="posts-lists__wrap">
-          {this.renderTypes(typeList)}
+          {/* {this.renderTypes(typeList)} */}
           <ul className="posts-lists">
             {
               list.map(item => <Item

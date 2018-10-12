@@ -19,7 +19,7 @@ export default class Sidebar extends PureComponent {
           <li className="left-menu__list-item"><Link to="/">Posts</Link></li>
           <li className="left-menu__list-item"><Link to="/archives">Archives</Link></li>
           <li className="left-menu__list-item"><Link to="/tags">Tags</Link></li>
-          <li className="left-menu__list-item"><Link to="/">About</Link></li>
+          {/* <li className="left-menu__list-item"><Link to="/">About</Link></li> */}
         </ul>
       </aside>
     )

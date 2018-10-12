@@ -1,0 +1,30 @@
+@import '@/styles/index.scss';
+
+.indexes-list {
+  position: fixed;
+  right: 140px;
+  top: 140px;
+
+  &__title {
+    width: 260px;
+    overflow: hidden;
+
+    &-3 {
+      counter-reset: section;
+      margin-left: 10px;
+    }
+    &-4 {
+      counter-increment: section;
+      margin-left: 20px;
+      &::before{
+        content: counters()
+      }
+    }
+    &-5 {
+      margin-left: 30px;
+    }
+    &-6 {
+      margin-left: 40px;
+    }
+  }
+}
