@@ -21,6 +21,9 @@ function generateBundleScripts (modules) {
 }
 
 export default async (ctx, next) => {
+  if (ctx.url === '/favicon.ico') {
+    ctx.body = '1'
+  }
   const context = {}
   const store = createStore()
   const modules = []
@@ -28,8 +31,9 @@ export default async (ctx, next) => {
   if (context.url) {
     return
   }
+  console.log(generateBundleScripts(app.modules))
   await ctx.render('index', {
-    title: 'title',
+    title: "Athon's Blog",
     root: app.html,
     state: store.getState(),
     scripts: generateBundleScripts(app.modules)

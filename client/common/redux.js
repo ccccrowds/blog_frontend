@@ -67,7 +67,6 @@ const applyFetchMiddleware = (
     next(START(action))
     return callAPI().then(res => res.json())
       .then(ret => {
-        console.log(SUCCESS(handleResponse(ret)))
         return next(SUCCESS(handleResult ? handleResult(ret) : handleResponse(ret)))
       })
       .catch(error => {
