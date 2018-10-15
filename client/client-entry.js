@@ -15,9 +15,9 @@ const store = createStore(initialState)
 // auto trigger fetch action when route change
 const AutoFetchWhenRouterChange = WrappedComponent =>
   class extends Component {
-    componentWillMount () {
-      triggerFetch(this.props.location.pathname, store)
-    }
+    // componentWillMount () {
+    //   triggerFetch(this.props.location.pathname, store)
+    // }
     componentWillReceiveProps(nextProps) {
       const navigated = nextProps.location !== this.props.location
       if (navigated) {

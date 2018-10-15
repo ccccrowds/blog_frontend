@@ -12,7 +12,6 @@ const stats = JSON.parse(statsStr)
 
 function generateBundleScripts (modules) {
   const bundles = getBundles(stats, modules)
-  console.log(bundles)
   return bundles
     .filter(bundle => bundle && bundle.file.endsWith('.js'))
     .map(bundle => {
@@ -32,6 +31,7 @@ export default async (ctx, next) => {
   if (context.url) {
     return
   }
+  console.log(generateBundleScripts(app.modules))
   await ctx.render('index', {
     title: "Athon's Blog",
     root: app.html,

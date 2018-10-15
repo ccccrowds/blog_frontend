@@ -6,9 +6,7 @@ import Loading from './loading'
  */
 export default (loader) => {
   return Loadable({
-    loader: () => {
-      return loader().then(object => object.default)
-    },
+    loader: () => import(`../routes/${loader}`).then(res => res.default ? res.default : res),
     loading: Loading,
   })
 }
