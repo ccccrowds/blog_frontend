@@ -41,6 +41,6 @@ export default async (ctx, next) => {
     state: store.getState(),
     scripts
   })
-
+  console.log('finish last render', new Date())
   next()
 }
