@@ -22,6 +22,6 @@ export const post = (url, params) => {
 export const get = (url, params = {}) => {
   const retUrl = url.indexOf('http') >= 0
     ? url
-    : `${config.host}:${config.port}` + url
+    : `${config.host}` + url
   return fetch(retUrl + getQueryString(params));
 };
