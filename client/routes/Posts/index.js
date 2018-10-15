@@ -9,11 +9,10 @@ import UserComp from './components'
 
 @provideHooks({
   fetch: ({ dispatch, params }) => {
-    return Promise.all([
-      dispatch(getPostsList()),
-      dispatch(getTypeList())
-    ])
-    
+    // return Promise.all([
+    return dispatch(getPostsList())
+      // dispatch(getTypeList())
+    // ])
   }
 })
 @connect(
