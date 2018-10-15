@@ -21,6 +21,7 @@ module.exports = {
     ],
     alias: {
       '@': resolve('client'),
+      'routes': resolve('client/routes'),
       'server': resolve('server')
     }
   },

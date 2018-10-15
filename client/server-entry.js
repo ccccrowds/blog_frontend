@@ -11,6 +11,7 @@ export default async (location, context, store, modules) => {
   await triggerFetch(location, store)
   return {
     html: renderToString(<Loadable.Capture report={moduleName => {
+      console.log(111, moduleName)
       modules.push(moduleName)
     }}>
       <Provider store={store}>

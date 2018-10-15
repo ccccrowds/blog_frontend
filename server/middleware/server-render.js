@@ -12,6 +12,7 @@ const stats = JSON.parse(statsStr)
 
 function generateBundleScripts (modules) {
   const bundles = getBundles(stats, modules)
+  console.log(bundles)
   return bundles
     .filter(bundle => bundle && bundle.file.endsWith('.js'))
     .map(bundle => {
@@ -21,6 +22,9 @@ function generateBundleScripts (modules) {
 }
 
 export default async (ctx, next) => {
+  if (ctx.url === '/favicon.ico') {
+    ctx.body = '1'
+  }
   const context = {}
   const store = createStore()
   const modules = []
@@ -29,7 +33,7 @@ export default async (ctx, next) => {
     return
   }
   await ctx.render('index', {
-    title: 'title',
+    title: "Athon's Blog",
     root: app.html,
     state: store.getState(),
     scripts: generateBundleScripts(app.modules)
