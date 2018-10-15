@@ -8,10 +8,11 @@ import App from './app'
 import triggerFetch from './common/triggerFetch'
 
 export default async (location, context, store, modules) => {
+  console.log('start Fetch', new Date())
   await triggerFetch(location, store)
+  console.log('finish Fetch', new Date())
   return {
     html: renderToString(<Loadable.Capture report={moduleName => {
-      console.log(111, moduleName)
       modules.push(moduleName)
     }}>
       <Provider store={store}>
