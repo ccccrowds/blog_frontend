@@ -3,6 +3,7 @@ import { getBundles } from 'react-loadable/webpack'
 import entry from '@/server-entry'
 import createStore from '@/store'
 import config from '../../config/index'
+import Cache from '@/common/cache'
 
 const path = require('path')
 const fs = require('fs')
@@ -20,11 +21,19 @@ function generateBundleScripts (modules) {
     .join('\n')
 }
 
+function isUrlMatchCache(url) {
+  return Cache.has(url)
+}
+
 export default async (ctx, next) => {
   if (ctx.url === '/favicon.ico') {
     ctx.body = '1'
   }
-  console.log('start', new Date())
+  if (isUrlMatchCache(ctx.url)) {
+    console.log('render from cache')
+    await ctx.render('index', Cache.get(ctx.url))
+    return
+  }
   const context = {}
   const store = createStore()
   const modules = []
@@ -32,15 +41,14 @@ export default async (ctx, next) => {
   if (context.url) {
     return
   }
-  console.log('finish Render', new Date())
   const scripts = generateBundleScripts(app.modules)
-  console.log('finish scripts', new Date())
-  await ctx.render('index', {
+  const renderConfigs = {
     title: "Athon's Blog",
     root: app.html,
     state: store.getState(),
     scripts
-  })
-  console.log('finish last render', new Date())
+  }
+  await ctx.render('index', renderConfigs)
+  Cache.set(ctx.url, renderConfigs)
   next()
 }
