@@ -10,6 +10,7 @@ const fs = require('fs')
 const statsPath = path.join(config.build.assetsRoot, 'react-loadable.json')
 const statsStr = fs.readFileSync(statsPath, 'utf8')
 const stats = JSON.parse(statsStr)
+const cache = new Cache()
 
 function generateBundleScripts (modules) {
   const bundles = getBundles(stats, modules)
@@ -22,7 +23,7 @@ function generateBundleScripts (modules) {
 }
 
 function isUrlMatchCache(url) {
-  return Cache.has(url)
+  return cache.has(url)
 }
 
 export default async (ctx, next) => {
@@ -31,7 +32,7 @@ export default async (ctx, next) => {
   }
   if (isUrlMatchCache(ctx.url)) {
     console.log('render from cache')
-    await ctx.render('index', Cache.get(ctx.url))
+    await ctx.render('index', cache.get(ctx.url))
     return
   }
   const context = {}
@@ -49,6 +50,6 @@ export default async (ctx, next) => {
     scripts
   }
   await ctx.render('index', renderConfigs)
-  Cache.set(ctx.url, renderConfigs)
+  cache.set(ctx.url, renderConfigs)
   next()
 }
