@@ -27,13 +27,10 @@ function isUrlMatchCache(url) {
 }
 
 export default async (ctx, next) => {
-  if (ctx.url === '/favicon.ico') {
-    ctx.body = '1'
-  }
   if (isUrlMatchCache(ctx.url)) {
     console.log('render from cache')
     await ctx.render('index', cache.get(ctx.url))
-    return
+    return next()
   }
   const context = {}
   const store = createStore()
