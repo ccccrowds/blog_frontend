@@ -2,6 +2,7 @@
 
 .left-menu {
   text-align: center;
+  position: relative;
 
   &__logo {
     margin: 0 auto;
@@ -17,6 +18,10 @@
     &-content {
       width: 100%;
     }
+  }
+
+  &__button {
+    display: none;
   }
 
   &__list {
@@ -39,6 +44,51 @@
         font-family: sans-serif;
         &:hover {
           color: $color-black;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .left-menu {
+    transition: all 0.3s;
+
+    &__logo {
+      width: 60px;
+      height: 60px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__button {
+      display: inline-block;
+      position: absolute;
+      outline: none;
+      top: 40px;
+      left: 15px;
+
+      &-bar {
+        display: block;
+        margin-bottom: 4px;
+        width: 22px;
+        height: 2px;
+        background: $color-easy-gray;
+        border-radius: 1px;
+        opacity: 0.8;
+      }
+    }
+    &__list {
+      width: 100%;
+      padding: 0 20px;
+      &-item {
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &>a {
+          text-align: left;
         }
       }
     }

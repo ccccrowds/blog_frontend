@@ -11,6 +11,7 @@ html, body, #root {
 }
 #root {
   display: flex;
+  flex-direction: row;
 }
 .left-menu {
   flex: 0 0 260px;
@@ -22,4 +23,17 @@ html, body, #root {
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: $color-bg;
+}
+
+@media (max-width: 767px) {
+  #root {
+    flex-direction: column;
+  }
+  .left-menu {
+    flex: 0 0 100px;
+
+    &.left-menu-show {
+      flex: 0 0 250px;
+    }
+  }
 }

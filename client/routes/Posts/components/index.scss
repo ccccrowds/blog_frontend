@@ -155,6 +155,23 @@
   }
   .posts-lists__item {
     width: 500px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .posts {
+    padding: 40px 0;
+  }
+  .posts-lists__wrap {
+    width: 300px;
+  }
+  .posts-lists__item {
+    width: 300px;
+
+    &__body {
+      height: 180px;
+    }
   }
 }
 
