@@ -23,8 +23,9 @@ function getParams(match) {
 const asyncMatchRoutes = async (routes, pathname) => {
   const match = matchRoutes(routes, pathname);
   const params = getParams(match);
+  console.log('start get Component', new Date())
   const components = await getComponents(match);
-
+  console.log('finish get Component', new Date())
   return { components, match, params };
 };
 
