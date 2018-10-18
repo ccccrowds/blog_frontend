@@ -15,7 +15,7 @@ export default class Tag extends Component {
     if (!_id) return ''
 
     return (
-      <Link className="tag" to={`/tags/${_id}`}>
+      <Link className="tag" to={`/tags?tag=${name}`}>
         {name}
       </Link>
     )

@@ -3,13 +3,21 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Loading from '@/common/loading'
 import Timeline from '@/components/Timeline'
-
+import { getParams } from '@/common/util'
 import './index.scss'
 
 export default class Tags extends PureComponent {
   static propTypes = {
     /** 标签列表 */
     tagList: PropTypes.object
+  }
+  componentWillReceiveProps = (nextProps) => {
+    if (this.props.tagList.loading && !nextProps.tagList.loading) {
+      const params = getParams(location.search)
+      setTimeout(() => {
+        params.tag && this.scrollToAnchor(params.tag)
+      }, 0)
+    }
   }
   scrollToAnchor = (anchorName) => {
     if (anchorName) {
