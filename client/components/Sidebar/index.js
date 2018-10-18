@@ -21,11 +21,11 @@ export default class Sidebar extends PureComponent {
     const { show } = this.state
     return (
       <aside className={`left-menu ${show ? 'left-menu-show' : ''}`}>
-        <button className="left-menu__button" onClick={this.toggleMenu}>
+        <div className="left-menu__button" onClick={this.toggleMenu}>
           <span className="left-menu__button-bar"></span>
           <span className="left-menu__button-bar"></span>
           <span className="left-menu__button-bar"></span>
-        </button>
+        </div>
         <div className="left-menu__logo">
           <img className="left-menu__logo-content" src={avatar}/>
         </div>
