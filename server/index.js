@@ -12,9 +12,9 @@ const staticRoot = resolve('../dist')
 
 app.use(views(staticRoot, { map: { html: 'ejs' } }))
 
-app.use(serve(staticRoot, {
-  index: 'index.js'
-}))
+// app.use(serve(staticRoot, {
+//   index: 'index.js'
+// }))
 
 app.use(ssrMiddleWare)
 
