@@ -13,9 +13,9 @@ const staticRoot = resolve('../dist')
 app.use(views(staticRoot, { map: { html: 'ejs' } }))
 
 app.use(serve(staticRoot, {
-  maxage: 'index.js',
-  gzip: true,
-  maxage: 60800
+  index: 'index.js',
+  maxage: 60800,
+  gzip: true
 }))
 
 app.use(ssrMiddleWare)
