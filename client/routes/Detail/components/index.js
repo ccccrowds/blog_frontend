@@ -3,12 +3,12 @@ import Loading from '@/common/loading'
 // import Indexes from './Indexes'
 import './index.scss'
 import 'highlight.js/styles/vs2015.css'
-
+const basicUrl = 'https://ws1.sinaimg.cn/large/'
 export default class Detail extends PureComponent {
   renderTitle (item) {
     return <Fragment>
       <div className="posts-detail__image">
-        <img src={item.thumb}/>
+        <img src={basicUrl + item.thumb}/>
       </div>
       <div className="posts-detail__title">
         <h2 className="posts-detail__title-content">{item.title}</h2>

@@ -4,6 +4,7 @@ import Tag from '@/components/Tag'
 import { Link } from 'react-router-dom'
 
 const gutter = 30
+const basicUrl = 'https://ws1.sinaimg.cn/mw690/'
 export default class PostItem extends PureComponent {
   getResultDesc(desc) {
     if (!desc) return ''
@@ -22,7 +23,7 @@ export default class PostItem extends PureComponent {
         <Link to={`/detail/${item._id}`} className="posts-lists__item__wrap">
           <div className="posts-lists__item__title"
             style={{
-              backgroundImage: `url(${item.thumb})`
+              backgroundImage: `url(${basicUrl + item.thumb})`
             }}>
             {item.title}
             <div className="posts-lists__item__time">
