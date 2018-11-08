@@ -13,8 +13,8 @@ const staticRoot = resolve('../dist')
 app.use(views(staticRoot, { map: { html: 'ejs' } }))
 
 app.use(serve(staticRoot, {
-  index: 'index.js',
-  maxage: 60800,
+  index: 'a.js',
+  maxage: 60800000,
   gzip: true
 }))
 

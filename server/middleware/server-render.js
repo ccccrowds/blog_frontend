@@ -25,11 +25,16 @@ function generateBundleScripts (modules) {
 function isUrlMatchCache(url) {
   return cache.has(url)
 }
+function isUrlMatchStatic(url) {
+  return url.indexOf('/static/') >= 0
+}
 
 export default async (ctx, next) => {
   if (isUrlMatchCache(ctx.url)) {
-    console.log('render from cache')
     await ctx.render('index', cache.get(ctx.url))
+    return next()
+  }
+  if (isUrlMatchStatic(ctx.url)) {
     return next()
   }
   const context = {}
