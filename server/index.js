@@ -14,7 +14,7 @@ app.use(views(staticRoot, { map: { html: 'ejs' } }))
 
 app.use(serve(staticRoot, {
   index: 'a.js',
-  maxage: 60800000,
+  maxage: 315360000 * 1000,
   gzip: true
 }))
 
