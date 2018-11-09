@@ -24,6 +24,7 @@
     "koa-views": "^6.1.4",
     "koa2-cors": "^2.0.6",
     "loadable": "^1.0.0",
+    "md5": "^2.2.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-image-layout": "^1.0.0",
@@ -36,6 +37,8 @@
     "redux-act": "^1.7.4",
     "redux-data-fetch-middleware": "^1.0.0",
     "redux-thunk": "^2.2.0",
+    "think-helper": "^1.1.2",
+    "think-store-file": "^1.0.10",
     "url-loader": "^1.1.1"
   },
   "devDependencies": {
