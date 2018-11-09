@@ -9,7 +9,7 @@ const router = new Router({
 })
 
 const cache = new Cache({
-  cachePath: path.join(__dirname, '..', '.cache')
+  cachePath: path.resolve(__dirname, '../.cache')
 })
 
 router.get('/*', async (ctx) => {
