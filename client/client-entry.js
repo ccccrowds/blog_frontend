@@ -8,6 +8,7 @@ import Loadable from 'react-loadable'
 
 import createStore from './store'
 import triggerFetch from './common/triggerFetch'
+import * as serviceWorkder from './serviceWorker'
 
 const initialState = window.REDUX_STATE
 const store = createStore(initialState)
@@ -52,6 +53,7 @@ if(module.hot){
   module.hot.accept() //接受模块更新的事件，同时阻止这个事件继续冒泡
 }
 
+serviceWorkder.register()
 
 
 

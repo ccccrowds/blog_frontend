@@ -11,7 +11,7 @@ var spinner = ora('building for production...')
 var fs = require('fs')
 spinner.start()
 
-module.exports = function (webpackConfig, assets) {
+module.exports = function (webpackConfig, assets, cb) {
   rm(assets, err => {
     if (err) throw err
     webpack(webpackConfig, function (err, stats) {
@@ -25,11 +25,8 @@ module.exports = function (webpackConfig, assets) {
         chunkModules: false
       }) + '\n\n')
 
+      cb && cb()
       console.log(chalk.cyan('  Build complete.\n'))
-      console.log(chalk.yellow(
-        '  Tip: built files are meant to be served over an HTTP server.\n' +
-        '  Opening index.html over file:// won\'t work.\n'
-      ))
     })
   })
 }

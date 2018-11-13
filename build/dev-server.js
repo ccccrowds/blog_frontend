@@ -8,6 +8,7 @@ const webpack = require('webpack')
 const webpackConfig = require('./webpack.dev.conf')
 // const webpackConfig = require('./dev')
 const convert = require('koa-convert')
+const serve = require('koa-static')
 const devMiddleware = require('koa-webpack-dev-middleware')
 const hotMiddleware = require('koa-webpack-hot-middleware')
 const views = require('koa-views')
@@ -42,6 +43,9 @@ compiler.plugin('emit', (compilation, callback) => {
   callback()
 })
 app.use(views(path.join(__dirname, '../views'), { extension: 'ejs' }))
+app.use(serve(path.resolve(__dirname, '../dist'), {
+  index: 'a.js'
+}))
 
 app.use(convert(devMiddleware(compiler, {
   noInfo: true
