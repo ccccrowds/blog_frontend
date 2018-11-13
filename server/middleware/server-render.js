@@ -26,7 +26,7 @@ function isUrlMatchCache(url) {
   return cache.has(url)
 }
 function isUrlMatchStatic(url) {
-  return url.indexOf('/static/') >= 0
+  return url.indexOf('/static/') >= 0 || url.indexOf('service-worker') >= 0
 }
 
 export default async (ctx, next) => {
