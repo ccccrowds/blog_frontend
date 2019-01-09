@@ -10,7 +10,7 @@ const fs = require('fs')
 const statsPath = path.join(config.build.assetsRoot, 'react-loadable.json')
 const statsStr = fs.readFileSync(statsPath, 'utf8')
 const stats = JSON.parse(statsStr)
-const cache = new Cache()
+export const cache = new Cache()
 
 function generateBundleScripts (modules) {
   const bundles = getBundles(stats, modules)

@@ -3,6 +3,7 @@ import path from 'path'
 import config from '../config'
 import { post, get } from '@/common/fetch'
 import Cache from '../cache'
+import renderCache from '../middleware/server-render'
 
 const router = new Router({
   prefix: '/api'
@@ -25,5 +26,9 @@ router.get('/*', async (ctx) => {
     cache.set(url, res)
   }
   
+})
+router.post('/refresh', async (ctx) => {
+  cache.clear()
+  renderCache.clear()
 })
 export default router

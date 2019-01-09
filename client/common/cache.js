@@ -11,6 +11,6 @@ export default class Cache {
     return this.cache.has(key)
   }
   clear () {
-    this.cache.clear
+    this.cache.clear()
   }
 }

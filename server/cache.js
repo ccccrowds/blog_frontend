@@ -8,7 +8,7 @@ const md5 = require('md5')
 const defaultOptions = {
   timeout: 24 * 3600 * 1000,
   cachePath: '',
-  pathDepth: 1,
+  pathDepth: 5,
   gcInterval: 24 * 3600 * 1000
 };
 
@@ -25,6 +25,7 @@ class FileCache {
     this.cachePath = config.cachePath;
     this.pathDepth = config.pathDepth;
     this.store = new FileStore(this.cachePath);
+    this.cached = []
   }
 
   /**
@@ -75,6 +76,7 @@ class FileCache {
       content: content,
       expire: Date.now() + timeout
     };
+    this.cached.push(relativePath)
     return this.store.set(relativePath, JSON.stringify(tmp));
   }
 
@@ -85,7 +87,18 @@ class FileCache {
    */
   delete(key) {
     const relativePath = this[_getRelativePath](key);
+    const index = this.cached.indexOf(relativePath)
+
+    if (index >= 0) {
+      this.cached.splice(index, 1)
+    }
+
     return this.store.delete(relativePath);
+  }
+
+  clear () {
+    this.cached.forEach(item => this.store.delete(item))
+    this.cached = []
   }
 }
 
